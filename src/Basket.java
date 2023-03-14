@@ -7,17 +7,17 @@ public class Basket implements Serializable {
 
     public Product[] addToCart(Product product, int added) {
         int i = product.id;
-        this.basket[i] = product;
-        this.basket[i].cnt = this.basket[i].cnt + added;
-        return this.basket;
+        basket[i] = product;
+        basket[i].cnt += added;
+        return basket;
     }
 
     public void showBasket() {
         String separator = "*********************";
         System.out.println("ВАША КОРЗИНА\n" + separator);
-        for (Product product : this.basket) {
+        for (Product product : basket) {
             if (product != null) {
-                System.out.println(product.title + " " + product.cnt + " psc " + product.cnt * product.price + " rub");
+                System.out.println(product.title + " " + product.cnt + " штук " + String.format("%.2f", product.cnt * product.price) + " руб");
                 sum = sum + product.cnt * product.price;
 
             }
@@ -27,4 +27,7 @@ public class Basket implements Serializable {
         System.out.println("Итого: " + result + " руб.\n");
     }
 
+    public Product[] getBasket() {
+        return basket;
+    }
 }

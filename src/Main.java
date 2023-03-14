@@ -11,6 +11,7 @@ public class Main {
 
         Product[] prd = Product.getProducts();
         Basket basket = loadFromBinFile();
+        prd = basket.getBasket();
         basket.showBasket();
 
         int userChoice;
@@ -18,7 +19,9 @@ public class Main {
 
             System.out.println("Добавьте в корзину");
             for (int i = 0; i < prd.length; i++) {
+                if (prd[i] != null) {
                 prd[i].print();
+                }
             }
             System.out.println("Для выхода введите 'end'");
             String input = scanner.nextLine();
@@ -33,9 +36,11 @@ public class Main {
                 System.out.println("Сколько добавить?");
                 int added = Integer.parseInt(scanner.nextLine());
                 basket.addToCart(prd[userChoice - 1], added);
-                basket.showBasket();
                 saveBin(basket);
+                basket.showBasket();
+
             }
+
         }
 
     }
