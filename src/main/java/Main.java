@@ -13,9 +13,12 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Basket basket = loadBasketFromJson();
+
         Product[] prd = Product.getProducts();
+        Basket basket = loadBasketFromJson();
+
         basket.showBasket();
+
         ClientLog log = new ClientLog();
         int userChoice;
         while (true) {
@@ -39,6 +42,7 @@ public class Main {
                 basket.addToCart(prd[userChoice - 1], added);
                 log.log(userChoice - 1, added);
                 basket.showBasket();
+                log.exportAsCSV();
                 saveBasketToJson(basket);
             }
         }

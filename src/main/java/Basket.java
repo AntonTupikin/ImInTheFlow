@@ -4,29 +4,30 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+
 public class Basket {
-    static double sum = 0;
+    private double sum = 0;
     protected Product[] basket = new Product[100];
 
-    public Product[] addToCart(Product product, int added) {
+    public void addToCart(Product product, int added) {
         int i = product.id;
-        this.basket[i] = product;
-        this.basket[i].cnt = this.basket[i].cnt + added;
-        return this.basket;
+        basket[i].title = product.title;
+        basket[i].cnt += added;
     }
 
     public void showBasket() {
         String separator = "*********************";
         System.out.println("ВАША КОРЗИНА\n" + separator);
-        for (Product product : this.basket) {
+        for (Product product : basket) {
             if (product != null) {
-                System.out.println(product.title + " " + product.cnt + " psc " + product.cnt * product.price + " rub");
-                sum = sum + product.cnt * product.price;
+                System.out.println(product.title + " " + product.cnt + " штук " + String.format("%.2f", product.cnt * product.price) + " руб");
+                sum += product.cnt * product.price;
 
             }
         }
         System.out.println(separator);
         String result = String.format("%.2f", sum);
+        sum = 0;
         System.out.println("Итого: " + result + " руб.\n");
     }
 
