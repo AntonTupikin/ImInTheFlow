@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -10,9 +12,10 @@ public class Basket {
     protected Product[] basket = new Product[100];
 
     public void addToCart(Product product, int added) {
-        int i = product.id;
-        basket[i].title = product.title;
-        basket[i].cnt += added;
+        if (basket[product.id] == null) {
+            basket[product.id] = new Product(product.title, product.price);
+        }
+        basket[product.id].cnt += added;
     }
 
     public void showBasket() {
@@ -31,7 +34,7 @@ public class Basket {
         System.out.println("Итого: " + result + " руб.\n");
     }
 
-    public void loadBasketFromTxt() {
+    public void saveBasketToTxt() {
         String string = "";
 
         try (FileWriter writer = new FileWriter("basket.txt", false)) {

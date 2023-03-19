@@ -5,8 +5,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ClientLog {
-    private int productNum;
-    private int amount;
     private ArrayList<String> log = new ArrayList<>();
 
     public void log(int productNum, int amount) {
