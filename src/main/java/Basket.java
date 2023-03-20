@@ -36,7 +36,6 @@ public class Basket {
 
     public void saveBasketToTxt() {
         String string = "";
-
         try (FileWriter writer = new FileWriter("basket.txt", false)) {
             // запись всей строки
             for (Product product : this.basket) {

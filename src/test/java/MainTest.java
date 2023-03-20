@@ -24,7 +24,6 @@ public class MainTest {
         Basket basket = gson.fromJson(s, Basket.class);
 
         Assert.assertNotNull(basket);
-
     }
 
     @Test

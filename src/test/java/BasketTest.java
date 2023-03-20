@@ -1,7 +1,6 @@
 import org.junit.Test;
 
 public class BasketTest {
-
     @Test
     public void checkCntWasAdded() {
         Basket basket = new Basket();

@@ -13,10 +13,8 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         Product[] prd = Product.getProducts();
         Basket basket = loadBasketFromJson();
-
         basket.showBasket();
 
         ClientLog log = new ClientLog();
@@ -47,12 +45,10 @@ public class Main {
             }
         }
     }
-
     public static void saveBasketToJson(Basket basket) {
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
         String obj = gson.toJson(basket);
-
         try (FileWriter file = new
                 FileWriter("basket.json")) {
             file.write(String.valueOf(obj));
@@ -68,7 +64,6 @@ public class Main {
             Object obj = parser.parse(new FileReader("basket.json"));
             JSONObject jsonObject = (JSONObject) obj;
             String s = jsonObject.toJSONString();
-
             GsonBuilder builder = new GsonBuilder();
             Gson gson = builder.create();
             Basket basket = gson.fromJson(s, Basket.class);

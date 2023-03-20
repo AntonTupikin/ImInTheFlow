@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ClientLog {
-    private ArrayList<String> log = new ArrayList<>();
+        private ArrayList<String> log = new ArrayList<>();
 
     public void log(int productNum, int amount) {
         String s = productNum + "," + amount;
