@@ -46,7 +46,6 @@ public class Main {
                 saveBasketToJson(basket);
             }
         }
-
     }
 
     public static void saveBasketToJson(Basket basket) {

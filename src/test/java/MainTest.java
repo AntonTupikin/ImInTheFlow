@@ -12,24 +12,24 @@ import java.io.IOException;
 public class MainTest {
 
     @Test
-    public void loadBasketFromJson_Test() throws IOException, ParseException {
+    public void checkBasketLoading() throws IOException, ParseException {
         JSONParser parser = new JSONParser();
 
-            Object obj = parser.parse(new FileReader("basket.json"));
-            JSONObject jsonObject = (JSONObject) obj;
-            String s = jsonObject.toJSONString();
+        Object obj = parser.parse(new FileReader("basket.json"));
+        JSONObject jsonObject = (JSONObject) obj;
+        String s = jsonObject.toJSONString();
 
-            GsonBuilder builder = new GsonBuilder();
-            Gson gson = builder.create();
-            Basket basket = gson.fromJson(s, Basket.class);
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        Basket basket = gson.fromJson(s, Basket.class);
 
         Assert.assertNotNull(basket);
 
     }
-    @Test
-    public void basket_is() throws IOException, ParseException {
-        JSONParser parser = new JSONParser();
 
+    @Test
+    public void checkBasketJsonFileNotEmpty() throws IOException, ParseException {
+        JSONParser parser = new JSONParser();
         Object obj = parser.parse(new FileReader("basket.json"));
         Assert.assertNotNull(obj);
 

@@ -67,8 +67,7 @@ public class Basket {
         int i = 0;
         while (iter.hasNext()) {
             String[] words = iter.next().split("\\|");
-            basket.addToCart(prd[Integer.parseInt(words[0])],
-                    Integer.parseInt(words[1]));
+            basket.addToCart(prd[Integer.parseInt(words[0])], Integer.parseInt(words[1]));
             i++;
         }
     }
